@@ -50,21 +50,21 @@ const style = {
 function QuizApp() {
     // do not modify the questions or answers below
     const questions = [
-    {
-        question: 'What is the capital of France?', options: ['London', 'Paris', 'Berlin', 'Madrid'], correct: 'Paris',
-    ｝
-        question: "What is the capital of Germany?', options: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'], correct: 'Berlin',
+      { question: "What is the capital of France?", options: ['London', 'Paris', 'Berlin', 'Madrid'], correct: 'Paris',},
+      { question: "What is the capital of Germany?", options: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'], correct: 'Berlin',}
+    ];
+
     return (
-        ‹div style={style.container}>
-            <div id="question" style={style.question}>/div>
-            ‹div style={style.options}>/div>
-            ‹button style={style.button} id="submitBtn"> Submit </button>
-            ‹div id="feedback" style={style.feedback}>/div>
-        </ div>
+      <div style={style.container}>
+        <div id="question" style={style.question}></div>
+          <div style={style.options}></div>
+          <button style={style.button} id="submitBtn"> Submit </button>
+        <div id="feedback" style={style.feedback}></div>
+      </ div>
     );
 };
 
-const container = document-getElementById('root');
-const root = createRoot (container):
-root. render (<QuizApp />);
+const container = document.getElementById('root');
+const root = createRoot (container);
+root.render (<QuizApp />);
 ```
