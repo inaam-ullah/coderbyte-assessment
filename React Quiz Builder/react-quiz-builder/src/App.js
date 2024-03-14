@@ -40,6 +40,11 @@ function App() {
     ];
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleOptionChange = (event) => {
+      setSelectedOption(event.target.value);
+    };
 
     return (
       <div style={style.container}>
@@ -52,14 +57,16 @@ function App() {
               id={`option${index + 1}`}
               name="options"
               value={option}
+              checked={selectedOption === option}
+              onChange={handleOptionChange}
             />
             <label htmlFor={`option${index + 1}`}>{option}</label>
           </div>
         ))}
       </div>
-          <button style={style.button} id="submitBtn"> Submit </button>
+        <button style={style.button} id="submitBtn"> Submit </button>
         <div id="feedback" style={style.feedback}></div>
-      </ div>
+      </div>
     );
 };
 
