@@ -68,3 +68,5 @@ const container = document.getElementById('root');
 const root = createRoot (container);
 root.render (<QuizApp />);
 ```
+
+Update your code and then run ```npm start```
