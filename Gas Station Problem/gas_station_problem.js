@@ -1,5 +1,6 @@
 function GasStation(strArr) {
     let tank = 0, startStation = 0, totalGas = 0, totalCost = 0;
+
     for (let i = 1; i <= strArr[0]; i++) {
         const [gas, cost] = strArr[i].split(':').map(Number);
         totalGas += gas;
