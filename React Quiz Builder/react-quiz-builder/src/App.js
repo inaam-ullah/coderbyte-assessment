@@ -43,9 +43,20 @@ function App() {
 
     return (
       <div style={style.container}>
-        <div id="question" style={style.question}>{questions[currentQuestionIndex].question}</div>
-          
-          <div style={style.options}></div>
+        <div id="question" style={style.question}>{questions[currentQuestionIndex].question}</div>  
+        <div style={style.options}>
+        {questions[currentQuestionIndex].options.map((option, index) => (
+          <div key={index}>
+            <input
+              type="radio"
+              id={`option${index + 1}`}
+              name="options"
+              value={option}
+            />
+            <label htmlFor={`option${index + 1}`}>{option}</label>
+          </div>
+        ))}
+      </div>
           <button style={style.button} id="submitBtn"> Submit </button>
         <div id="feedback" style={style.feedback}></div>
       </ div>
