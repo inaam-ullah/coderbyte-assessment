@@ -41,30 +41,42 @@ function App() {
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState('');
+    const [score, setScore] = useState(0);
 
     const handleOptionChange = (event) => {
       setSelectedOption(event.target.value);
     };
 
+    const handleSubmit = () => {
+      const currentQuestion = questions[currentQuestionIndex];
+      if (selectedOption === currentQuestion.correct) {
+        setScore(score + 1);
+      }
+  
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setSelectedOption('');
+    };
+  
+
     return (
       <div style={style.container}>
         <div id="question" style={style.question}>{questions[currentQuestionIndex].question}</div>  
         <div style={style.options}>
-        {questions[currentQuestionIndex].options.map((option, index) => (
-          <div key={index}>
-            <input
-              type="radio"
-              id={`option${index + 1}`}
-              name="options"
-              value={option}
-              checked={selectedOption === option}
-              onChange={handleOptionChange}
-            />
-            <label htmlFor={`option${index + 1}`}>{option}</label>
-          </div>
-        ))}
-      </div>
-        <button style={style.button} id="submitBtn"> Submit </button>
+          {questions[currentQuestionIndex].options.map((option, index) => (
+            <div key={index}>
+              <input
+                type="radio"
+                id={`option${index + 1}`}
+                name="options"
+                value={option}
+                checked={selectedOption === option}
+                onChange={handleOptionChange}
+              />
+              <label htmlFor={`option${index + 1}`}>{option}</label>
+            </div>
+          ))}
+        </div>
+        <button style={style.button} onClick={handleSubmit} id="submitBtn">Submit</button>
         <div id="feedback" style={style.feedback}></div>
       </div>
     );
