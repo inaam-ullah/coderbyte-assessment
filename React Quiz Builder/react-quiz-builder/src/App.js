@@ -32,16 +32,19 @@ const style = {
   },
 };
 
-function QuizApp() {
+function App() {
     // do not modify the questions or answers below
     const questions = [
       { question: "What is the capital of France?", options: ['London', 'Paris', 'Berlin', 'Madrid'], correct: 'Paris',},
       { question: "What is the capital of Germany?", options: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'], correct: 'Berlin',}
     ];
 
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
     return (
       <div style={style.container}>
-        <div id="question" style={style.question}></div>
+        <div id="question" style={style.question}>{questions[currentQuestionIndex].question}</div>
+          
           <div style={style.options}></div>
           <button style={style.button} id="submitBtn"> Submit </button>
         <div id="feedback" style={style.feedback}></div>
@@ -49,6 +52,4 @@ function QuizApp() {
     );
 };
 
-const container = document.getElementById('root');
-const root = createRoot (container);
-root.render (<QuizApp />);
+export default App;
