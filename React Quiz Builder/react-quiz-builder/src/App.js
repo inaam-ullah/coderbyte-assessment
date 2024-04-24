@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
+
 
 const style = {
   container: {
@@ -42,6 +42,7 @@ function App() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState('');
     const [score, setScore] = useState(0);
+    const [feedback, setFeedback] = useState('');
 
     const handleOptionChange = (event) => {
       setSelectedOption(event.target.value);
@@ -51,6 +52,9 @@ function App() {
       const currentQuestion = questions[currentQuestionIndex];
       if (selectedOption === currentQuestion.correct) {
         setScore(score + 1);
+        setFeedback('Correct!');
+      } else {
+        setFeedback('Incorrect!');
       }
   
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -77,7 +81,7 @@ function App() {
           ))}
         </div>
         <button style={style.button} onClick={handleSubmit} id="submitBtn">Submit</button>
-        <div id="feedback" style={style.feedback}></div>
+        {feedback && <div id="feedback" style={style.feedback}>{feedback}</div>}
       </div>
     );
 };
