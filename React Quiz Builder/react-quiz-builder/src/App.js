@@ -43,6 +43,7 @@ function App() {
     const [selectedOption, setSelectedOption] = useState('');
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState('');
+    const [prevFeedback, setPrevFeedback] = useState('');
 
     const handleOptionChange = (event) => {
       setSelectedOption(event.target.value);
@@ -82,6 +83,7 @@ function App() {
         </div>
         <button style={style.button} onClick={handleSubmit} id="submitBtn">Submit</button>
         {feedback && <div id="feedback" style={style.feedback}>{feedback}</div>}
+        {prevFeedback && <div id="prevFeedback" style={style.feedback}>Previous Feedback: {prevFeedback}</div>}
       </div>
     );
 };
