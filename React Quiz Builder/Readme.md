@@ -69,4 +69,6 @@ const root = createRoot (container);
 root.render (<QuizApp />);
 ```
 
-Update your code and then run ```npm start```
+1. Create a react app
+2. Add Code in app.js and update accodingly
+3. Update your code and then run ```npm start```
